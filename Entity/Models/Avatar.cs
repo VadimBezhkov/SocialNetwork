@@ -20,10 +20,9 @@ namespace Entity.Models
 
         [Required]
         [StringLength(50)]
-        public string path { get; set; }
+        public string Path { get; set; }
         public bool Active { get; set; }
 
-        [ForeignKey("AvatarId")]
         public virtual ICollection<LikeAvatar>LikeAvatars { get; set; }
         public virtual ICollection<MessageAvatar> MessageAvatars { get; set; }
     }

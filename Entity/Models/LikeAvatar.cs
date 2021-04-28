@@ -12,15 +12,15 @@ namespace Entity.Models
     {
         public int Id { get; set; }
 
-      
         public int? AvatarId { get; set; }
 
-      
         public int? UserId { get; set; }
+
         public bool Сondition { get; set; }
 
         [ForeignKey("AvatarId")]
         public virtual Avatar  Avatars { get; set; }
+
         [ForeignKey("UserId")]
         public virtual User Users { get; set; }
     }
