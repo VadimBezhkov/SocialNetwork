@@ -9,8 +9,8 @@ namespace Entity.Models
    public class MessageAvatar
     {
         public int Id { get; set; }
-        public int AvatarId { get; set; }
-        public int MessageId { get; set; }
+        public int? AvatarId { get; set; }
+        public int? MessageId { get; set; }
         public virtual Avatar Avatars { get; set; }
         public virtual Message Messages { get; set; }
     }

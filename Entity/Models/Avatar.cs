@@ -15,8 +15,8 @@ namespace Entity.Models
             LikeAvatars = new HashSet<LikeAvatar>();
             MessageAvatars = new HashSet<MessageAvatar>();
         }
-        public int Id { get; set; }
-        public int UserId { get; set; }
+        public int? Id { get; set; }
+        public int? UserId { get; set; }
 
         [Required]
         [StringLength(50)]

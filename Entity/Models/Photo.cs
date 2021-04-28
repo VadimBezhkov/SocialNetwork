@@ -18,7 +18,7 @@ namespace Entity.Models
         [Required]
         [StringLength(50)]
         public string Path { get; set; }
-        public int AlbumId { get; set; }
+        public int? AlbumId { get; set; }
         public DateTime TimeCreation { get; set; }
         public virtual Album Albums { get; set; }
         public virtual ICollection<LikePhoto> LikePhotos { get; set; }

@@ -19,7 +19,7 @@ namespace Entity.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public DateTime TimeCreation { get; set; }
         public virtual ICollection<Photo> Photos { get; set; }
     }

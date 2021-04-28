@@ -9,8 +9,8 @@ namespace Entity.Models
    public class PhotoMessage
     {
         public int Id { get; set; }
-        public int PhotoId { get; set; }
-        public int MessageId { get; set; }
+        public int? PhotoId { get; set; }
+        public int? MessageId { get; set; }
         public virtual Photo Photos { get; set; }
         public virtual Message Message { get; set; }
     }

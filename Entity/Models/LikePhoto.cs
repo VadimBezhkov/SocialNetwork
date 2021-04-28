@@ -10,8 +10,8 @@ namespace Entity.Models
    public class LikePhoto
     {
         public int Id { get; set; }
-        public int PhotoId { get; set; }
-        public int UserId { get; set; }
+        public int? PhotoId { get; set; }
+        public int? UserId { get; set; }
         public bool Сondition { get; set; }
 
         [ForeignKey("UserId")]

@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202104281050019_enithial.designer.cs">
       <DependentUpon>202104281050019_enithial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104281117415_enithial1.cs" />
+    <Compile Include="Migrations\202104281117415_enithial1.designer.cs">
+      <DependentUpon>202104281117415_enithial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Avatar.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104281050019_enithial.resx">
       <DependentUpon>202104281050019_enithial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281117415_enithial1.resx">
+      <DependentUpon>202104281117415_enithial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

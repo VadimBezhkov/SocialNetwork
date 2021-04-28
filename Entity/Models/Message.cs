@@ -16,7 +16,7 @@ namespace Entity.Models
             Photos = new HashSet<Photo>();
         }
         public int Id { get; set; }
-        public int DialogId { get; set; }
+        public int? DialogId { get; set; }
 
         [Column(TypeName = "text")]
         [Required]
