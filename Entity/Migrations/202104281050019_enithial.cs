@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialmigration : DbMigration
+    public partial class enithial : DbMigration
     {
         public override void Up()
         {
@@ -17,7 +17,7 @@
                         TimeCreation = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -31,7 +31,7 @@
                         Message_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Albums", t => t.AlbumId, cascadeDelete: true)
+                .ForeignKey("dbo.Albums", t => t.AlbumId)
                 .ForeignKey("dbo.Messages", t => t.Message_Id)
                 .Index(t => t.AlbumId)
                 .Index(t => t.Message_Id);
@@ -45,7 +45,11 @@
                         UserId = c.Int(nullable: false),
                         Сondition = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Photos", t => t.PhotoId)
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.PhotoId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Users",
@@ -75,7 +79,7 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Messages", t => t.Message_Id)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.Message_Id);
             
@@ -89,8 +93,8 @@
                         Сondition = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Avatars", t => t.AvatarId, cascadeDelete: false)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.Avatars", t => t.AvatarId)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.AvatarId)
                 .Index(t => t.UserId);
             
@@ -103,8 +107,8 @@
                         MessageId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Avatars", t => t.AvatarId, cascadeDelete: true)
-                .ForeignKey("dbo.Messages", t => t.MessageId, cascadeDelete: true)
+                .ForeignKey("dbo.Avatars", t => t.AvatarId)
+                .ForeignKey("dbo.Messages", t => t.MessageId)
                 .Index(t => t.AvatarId)
                 .Index(t => t.MessageId);
             
@@ -119,7 +123,7 @@
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Dialogs", t => t.DialogId, cascadeDelete: true)
+                .ForeignKey("dbo.Dialogs", t => t.DialogId)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.DialogId)
                 .Index(t => t.User_Id);
@@ -144,8 +148,8 @@
                         TimeCreation = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Dialogs", t => t.DialogId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Dialogs", t => t.DialogId)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.DialogId);
             
@@ -158,8 +162,8 @@
                         User2Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.User1Id, cascadeDelete: false)
-                .ForeignKey("dbo.Users", t => t.User2Id, cascadeDelete: false)
+                .ForeignKey("dbo.Users", t => t.User1Id)
+                .ForeignKey("dbo.Users", t => t.User2Id)
                 .Index(t => t.User1Id)
                 .Index(t => t.User2Id);
             
@@ -172,36 +176,10 @@
                         MessageId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Messages", t => t.MessageId, cascadeDelete: true)
-                .ForeignKey("dbo.Photos", t => t.PhotoId, cascadeDelete: true)
+                .ForeignKey("dbo.Messages", t => t.MessageId)
+                .ForeignKey("dbo.Photos", t => t.PhotoId)
                 .Index(t => t.PhotoId)
                 .Index(t => t.MessageId);
-            
-            CreateTable(
-                "dbo.LikePhotoPhotoes",
-                c => new
-                    {
-                        LikePhoto_Id = c.Int(nullable: false),
-                        Photo_Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.LikePhoto_Id, t.Photo_Id })
-                .ForeignKey("dbo.LikePhotoes", t => t.LikePhoto_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Photos", t => t.Photo_Id, cascadeDelete: true)
-                .Index(t => t.LikePhoto_Id)
-                .Index(t => t.Photo_Id);
-            
-            CreateTable(
-                "dbo.UserLikePhotoes",
-                c => new
-                    {
-                        User_Id = c.Int(nullable: false),
-                        LikePhoto_Id = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.User_Id, t.LikePhoto_Id })
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
-                .ForeignKey("dbo.LikePhotoes", t => t.LikePhoto_Id, cascadeDelete: true)
-                .Index(t => t.User_Id)
-                .Index(t => t.LikePhoto_Id);
             
         }
         
@@ -210,8 +188,7 @@
             DropForeignKey("dbo.PhotoMessages", "PhotoId", "dbo.Photos");
             DropForeignKey("dbo.PhotoMessages", "MessageId", "dbo.Messages");
             DropForeignKey("dbo.Messages", "User_Id", "dbo.Users");
-            DropForeignKey("dbo.UserLikePhotoes", "LikePhoto_Id", "dbo.LikePhotoes");
-            DropForeignKey("dbo.UserLikePhotoes", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.LikePhotoes", "UserId", "dbo.Users");
             DropForeignKey("dbo.Friends", "User2Id", "dbo.Users");
             DropForeignKey("dbo.Friends", "User1Id", "dbo.Users");
             DropForeignKey("dbo.Avatars", "UserId", "dbo.Users");
@@ -225,13 +202,8 @@
             DropForeignKey("dbo.LikeAvatar", "UserId", "dbo.Users");
             DropForeignKey("dbo.LikeAvatar", "AvatarId", "dbo.Avatars");
             DropForeignKey("dbo.Albums", "UserId", "dbo.Users");
-            DropForeignKey("dbo.LikePhotoPhotoes", "Photo_Id", "dbo.Photos");
-            DropForeignKey("dbo.LikePhotoPhotoes", "LikePhoto_Id", "dbo.LikePhotoes");
+            DropForeignKey("dbo.LikePhotoes", "PhotoId", "dbo.Photos");
             DropForeignKey("dbo.Photos", "AlbumId", "dbo.Albums");
-            DropIndex("dbo.UserLikePhotoes", new[] { "LikePhoto_Id" });
-            DropIndex("dbo.UserLikePhotoes", new[] { "User_Id" });
-            DropIndex("dbo.LikePhotoPhotoes", new[] { "Photo_Id" });
-            DropIndex("dbo.LikePhotoPhotoes", new[] { "LikePhoto_Id" });
             DropIndex("dbo.PhotoMessages", new[] { "MessageId" });
             DropIndex("dbo.PhotoMessages", new[] { "PhotoId" });
             DropIndex("dbo.Friends", new[] { "User2Id" });
@@ -246,11 +218,11 @@
             DropIndex("dbo.LikeAvatar", new[] { "AvatarId" });
             DropIndex("dbo.Avatars", new[] { "Message_Id" });
             DropIndex("dbo.Avatars", new[] { "UserId" });
+            DropIndex("dbo.LikePhotoes", new[] { "UserId" });
+            DropIndex("dbo.LikePhotoes", new[] { "PhotoId" });
             DropIndex("dbo.Photos", new[] { "Message_Id" });
             DropIndex("dbo.Photos", new[] { "AlbumId" });
             DropIndex("dbo.Albums", new[] { "UserId" });
-            DropTable("dbo.UserLikePhotoes");
-            DropTable("dbo.LikePhotoPhotoes");
             DropTable("dbo.PhotoMessages");
             DropTable("dbo.Friends");
             DropTable("dbo.UserDialogs");

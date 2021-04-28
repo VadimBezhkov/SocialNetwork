@@ -9,6 +9,10 @@ namespace Entity.Models
 {
    public class Photo
     {
+        public Photo()
+        {
+            TimeCreation = DateTime.Now;
+        }
         public int Id { get; set; }
 
         [Required]

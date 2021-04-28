@@ -52,13 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\202104280848299_initialmigration.cs" />
-    <Compile Include="Migrations\202104280848299_initialmigration.designer.cs">
-      <DependentUpon>202104280848299_initialmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104280855140_initialmigration1.cs" />
-    <Compile Include="Migrations\202104280855140_initialmigration1.designer.cs">
-      <DependentUpon>202104280855140_initialmigration1.cs</DependentUpon>
+    <Compile Include="Migrations\202104281050019_enithial.cs" />
+    <Compile Include="Migrations\202104281050019_enithial.designer.cs">
+      <DependentUpon>202104281050019_enithial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -80,11 +76,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104280848299_initialmigration.resx">
-      <DependentUpon>202104280848299_initialmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104280855140_initialmigration1.resx">
-      <DependentUpon>202104280855140_initialmigration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104281050019_enithial.resx">
+      <DependentUpon>202104281050019_enithial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

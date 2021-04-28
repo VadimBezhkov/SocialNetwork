@@ -12,6 +12,7 @@ namespace Entity.Models
         public Album()
         {
             Photos = new HashSet<Photo>();
+            TimeCreation = DateTime.Now;
         }
         public int Id { get; set; }
 
