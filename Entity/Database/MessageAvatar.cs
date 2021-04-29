@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
-   public class PhotoMessage
+   public class MessageAvatar
     {
         public int Id { get; set; }
-        public int? PhotoId { get; set; }
+        public int? AvatarId { get; set; }
         public int? MessageId { get; set; }
-        public virtual Photo Photos { get; set; }
-        public virtual Message Message { get; set; }
+        public virtual Avatar Avatars { get; set; }
+        public virtual Message Messages { get; set; }
     }
 }

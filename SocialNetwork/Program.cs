@@ -1,5 +1,5 @@
 ﻿using Entity;
-using Entity.Models;
+using Entity.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,24 +12,14 @@ namespace SocialNetwork
     {
         static void Main(string[] args)
         {
-            User us1 = new User
-            {
-                LastName = "Vadim",
-                FirstName = "Bezhkov",
-                Email = "vadimbezhkov3112@gmail.com",
-                Login = "Vadim",
-                Password = "123",
-                SecondName = "Alexandrovich",
-                TimeRegistration = DateTime.Now
-            };
             using (StringContex db = new StringContex())
             {
-                db.Users.Add(us1);
-                db.SaveChanges();
+                db.Migrate();
             }
+
             Console.WriteLine("Готово");
-                Console.ReadKey();
-         
+            Console.ReadKey();
+
         }
     }
 }

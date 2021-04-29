@@ -52,35 +52,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\202104281050019_enithial.cs" />
-    <Compile Include="Migrations\202104281050019_enithial.designer.cs">
-      <DependentUpon>202104281050019_enithial.cs</DependentUpon>
+    <Compile Include="Database\Album.cs" />
+    <Compile Include="Database\Avatar.cs" />
+    <Compile Include="Database\Dialog.cs" />
+    <Compile Include="Database\Friend.cs" />
+    <Compile Include="Database\Like.cs" />
+    <Compile Include="Database\LikeAvatar.cs" />
+    <Compile Include="Database\LikePhoto.cs" />
+    <Compile Include="Database\Message.cs" />
+    <Compile Include="Database\MessageAvatar.cs" />
+    <Compile Include="Database\Photo.cs" />
+    <Compile Include="Database\PhotoMessage.cs" />
+    <Compile Include="Database\User.cs" />
+    <Compile Include="Database\UserDialog.cs" />
+    <Compile Include="Migrations\202104290912534_InitialCreate.cs" />
+    <Compile Include="Migrations\202104290912534_InitialCreate.designer.cs">
+      <DependentUpon>202104290912534_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104281117415_enithial1.cs" />
-    <Compile Include="Migrations\202104281117415_enithial1.designer.cs">
-      <DependentUpon>202104281117415_enithial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104281124342_enithial2.cs" />
-    <Compile Include="Migrations\202104281124342_enithial2.designer.cs">
-      <DependentUpon>202104281124342_enithial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104281209543_enithial3.cs" />
-    <Compile Include="Migrations\202104281209543_enithial3.designer.cs">
-      <DependentUpon>202104281209543_enithial3.cs</DependentUpon>
+    <Compile Include="Migrations\202104291014239_addNewEntity.cs" />
+    <Compile Include="Migrations\202104291014239_addNewEntity.designer.cs">
+      <DependentUpon>202104291014239_addNewEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\Avatar.cs" />
-    <Compile Include="Models\Dialog.cs" />
-    <Compile Include="Models\Friend.cs" />
-    <Compile Include="Models\LikeAvatar.cs" />
-    <Compile Include="Models\LikePhoto.cs" />
-    <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\MessageAvatar.cs" />
-    <Compile Include="Models\Photo.cs" />
-    <Compile Include="Models\PhotoMessage.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserDialog.cs" />
+    <Compile Include="MyContextInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,17 +82,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104281050019_enithial.resx">
-      <DependentUpon>202104281050019_enithial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104290912534_InitialCreate.resx">
+      <DependentUpon>202104290912534_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104281117415_enithial1.resx">
-      <DependentUpon>202104281117415_enithial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104281124342_enithial2.resx">
-      <DependentUpon>202104281124342_enithial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104281209543_enithial3.resx">
-      <DependentUpon>202104281209543_enithial3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104291014239_addNewEntity.resx">
+      <DependentUpon>202104291014239_addNewEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

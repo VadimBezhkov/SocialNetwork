@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
     public class User
     {
@@ -16,8 +16,6 @@ namespace Entity.Models
             Avatars = new List<Avatar>();
             Friends1 = new List<Friend>();
             Friends2 = new List<Friend>();
-            LikeAvatars = new List<LikeAvatar>();
-            LikePhotos = new List<LikePhoto>();
             Messages = new List<Message>();
             UserDialogs = new List<UserDialog>();
             TimeRegistration = DateTime.Now;  
@@ -57,8 +55,6 @@ namespace Entity.Models
         [ForeignKey("User2Id")]
         public virtual List<Friend> Friends2 { get; set; }
 
-        public virtual List<LikeAvatar> LikeAvatars { get; set; }
-        public virtual List<LikePhoto> LikePhotos { get; set; }
         public virtual List<Message> Messages { get; set; }
         public virtual List<UserDialog> UserDialogs { get; set; }
     }

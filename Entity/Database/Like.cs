@@ -5,19 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
-   public class LikePhoto
+   public class Like
     {
         public int Id { get; set; }
-        public int? PhotoId { get; set; }
+
         public int? UserId { get; set; }
+
         public bool Сondition { get; set; }
+
 
         [ForeignKey("UserId")]
         public virtual User Users { get; set; }
-
-        [ForeignKey("PhotoId")]
-        public virtual Photo Photos { get; set; }
     }
 }

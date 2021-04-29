@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
     public class Message
     {
@@ -17,6 +17,7 @@ namespace Entity.Models
         [Required]
         public string Text { get; set; }
         public bool TextChanged { get; set; }
+        public User Users { get; set; }
         public virtual Dialog Dialogs { get; set; }
 
         

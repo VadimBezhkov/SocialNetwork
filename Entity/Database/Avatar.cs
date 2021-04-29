@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
    public class Avatar
     {
@@ -23,7 +23,7 @@ namespace Entity.Models
         public string Path { get; set; }
         public bool Active { get; set; }
 
-        public virtual ICollection<LikeAvatar>LikeAvatars { get; set; }
+        public virtual ICollection<LikeAvatar> LikeAvatars { get; set; }
         public virtual ICollection<MessageAvatar> MessageAvatars { get; set; }
     }
 }

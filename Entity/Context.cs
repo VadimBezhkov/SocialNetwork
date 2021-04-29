@@ -1,4 +1,5 @@
-﻿using Entity.Models;
+﻿using Entity.Database;
+using Entity.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,10 +12,18 @@ namespace Entity
 {
     public class StringContex : DbContext
     {
+        public void Migrate()
+        {
+            System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<StringContex, Configuration>());
+            Database.Initialize(false);
+        }
+
         public StringContex() : base("StringContext")
         {
-
+            
         }
+
+        public virtual DbSet<NewEntity> NewEntity { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Album> Albums { get; set; }
         public virtual DbSet<Avatar> Avatars { get; set; }
@@ -24,7 +33,7 @@ namespace Entity
         public virtual DbSet<LikePhoto> LikePhotos { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<MessageAvatar> MessageAvatars { get; set; }
-
+        public virtual DbSet<Like> Likes { get; set; }
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<PhotoMessage> PhotoMessages { get; set; }
         public virtual DbSet<UserDialog> UserDialogs { get; set; }
@@ -34,5 +43,6 @@ namespace Entity
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
+
     }
 }

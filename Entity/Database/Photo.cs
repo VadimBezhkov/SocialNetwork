@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Database
 {
    public class Photo
     {
         public Photo()
         {
             TimeCreation = DateTime.Now;
+            LikePhotos = new HashSet<LikePhoto>();
         }
         public int Id { get; set; }
 
