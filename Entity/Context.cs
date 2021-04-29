@@ -23,7 +23,6 @@ namespace Entity
             
         }
 
-        public virtual DbSet<NewEntity> NewEntity { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Album> Albums { get; set; }
         public virtual DbSet<Avatar> Avatars { get; set; }
